@@ -1,0 +1,46 @@
+{
+  "bigAdvList": [
+    {
+      "imgUrl": "http://192.168.83.32/event/image/李钟硕.jpg",
+      "openUrl": ""
+    },
+    {
+      "imgUrl": "http://192.168.83.32/event/image/715.jpg",
+      "openUrl": "http://www.showself.com/activity/ac_doubleEleven_10101.html"
+    },
+    {
+      "imgUrl": "http://192.168.83.32/event/image/t0161d64587e6591926.jpg",
+      "openUrl": "dewf"
+    },
+    {
+      "imgUrl": "http://192.168.83.32/event/image/t0161d64587e6591926.jpg",
+      "openUrl": "hdjw%"
+    },
+    {
+      "imgUrl": "",
+      "openUrl": "http://192.168.83.92:8080/gamemanager/upload/event/activity/CR94PpIUkAAduxp.png"
+    },
+    {
+      "imgUrl": "",
+      "openUrl": "1"
+    }
+  ],
+  "beautyInfoList": [
+    {
+      "imgUrl": "http://192.168.83.32/event/image/李钟硕.jpg",
+      "openUrl": "jkl;fjewal;few"
+    },
+    {
+      "imgUrl": "http://192.168.83.32/event/image/20140621093912_vFBxQ.thumb.700_0.jpeg",
+      "openUrl": "http://192.168.83.81:8080/browse/LHXC-222?jql=project%20%3D%20LHXC%20AND%20component%20%3D%20%E4%B9%90%E5%97%A8%E7%A7%80%E5%9C%BAAndroid%E7%AB%AF"
+    },
+    {
+      "imgUrl": "http://192.168.83.32/event/image/star.jpg",
+      "openUrl": "/activity/newStar.html"
+    },
+    {
+      "imgUrl": "http://192.168.83.54:8080/gamemanager/upload/event/image/miji.jpg",
+      "openUrl": "http://bbs.mumayi.com/thread-1670896-1-1.html"
+    }
+  ]
+}

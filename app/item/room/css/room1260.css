@@ -1,0 +1,19 @@
+﻿.room_body_new{min-width:1240px;padding:10px 0;}
+.room_main{min-width:1240px;}
+/*左侧课程区*/
+.room_column1{width:376px;height:508px;}
+.room_course_courseware{height:442px;}
+/*中间视频区*/
+.room_column2{width:559px;height:580px;}
+/*视频区*/
+.room_video_div{width:559px;height:419px;}
+/*右侧聊天区*/
+.room_column3{margin-left:955px;height:508px;}
+.room_chat_main{height:324px;}
+.room_chat_main_box{height:324px;overflow-x:hidden;overflow-y:auto;}
+.room_chat_main_content{width:100%;}
+.room_chat_bottom textarea{width:calc(100% - 80px);}
+.room_chat_send{width:70px;}
+/*预约消息*/
+.room_order_pop{width:360px;top:530px;}
+.room_order_info{width:206px;}

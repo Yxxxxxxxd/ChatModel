@@ -1,0 +1,66 @@
+﻿*{margin:0;padding:0;font-family:"微软雅黑",Microsoft YaHei,Arial, Helvetica, sans-serif, "宋体";font-size:12px;list-style:none;font-weight:normal;}
+body{margin:0 auto;padding:0 auto;}
+a{text-decoration:none;}
+a:focus{outline-style:none;-moz-outline-style:none;}
+a{blr:expression(this.onFocus=this.close());}
+a{blr:expression(this.onFocus=this.blur());}
+ul{padding:0;margin:0;}
+li{list-style:none;}
+input,textarea,select,option{outline:none;}
+
+/*余额不足弹出框*/
+.yue{ width:350px; z-index: 9999; position:fixed; top:50%; left:50%; margin-left:-175px; margin-top:-55px;overflow:hidden;border-radius:4px;  box-shadow:0 0 4px rgba(0,0,0,0.2); }
+.yue_d{ background:#fff; width:346px; padding-bottom:18px; background:#fff; margin:2px 0 0 2px; border-radius:4px; position:relative; z-index:4;}
+.yue_d1{ padding:10px 0 0 20px; font-size:14px; color:#000;}
+.yue_d2{ padding:10px 26px 10px 26px; color:#666666; text-indent:25px; line-height:22px;}
+.yue_d3{ text-align:center;cursor:pointer;}
+.yue_d3a1{ display:inline-block; width:60px; height:26px; background:#70c989; line-height:26px; text-align:center; color:#fff; border-radius:2px; margin:10px 10px 0;}
+.yue_d3a2{ display:inline-block; width:60px; height:26px; background:#f3f1f4; line-height:26px; text-align:center; color:#646263; border-radius:2px; margin-top:10px;margin-left: 10px;cursor:pointer;}
+.yue_d4{ width:8px; height:8px; position:absolute; top:13px; right:16px;}
+.yue_d4 a{ font-size:20px; font-weight:bold;cursor:pointer;}
+.bg{background: rgba(0,0,0,.6);  width: 100%;  height: 100%;  position: fixed;  left: 0;  top: 0;  z-index: 998;}
+.dashboardBg{background: rgba(0,0,0,.2);  width: 100%;  height: 100%;  position: fixed;  left: 0;  top: 0;  z-index: 998;}
+
+/*退出*/
+.livehall_layer{width:100%;height:100%;background:#000;opacity:.5;filter:alpha(opacity=50);position:fixed;top:0;right:0;bottom:0;left:0;z-index:999}
+.livehall_tuichu_div{z-index:999;}
+.livehall_login_close,.livehall_tuichu_close,.register_close{display:block;width:44px;height:38px;background:url(../../../images/index/icon1.png)no-repeat right -147px;position:absolute;top:0;right:0;cursor:pointer}
+.livehall_login_close:hover,.livehall_tuichu_close:hover,.register_close:hover{background-position:right -189px;}
+.livehall_tuichu{width:390px;height:260px;margin:-160px 0 0 -235px;padding:30px 40px;background:#fff;position:fixed;top:50%;left:50%;z-index:999;}
+.livehall_tuichu_d1{font-size:20px;color:#373737;}
+.livehall_tuichu_d2{height:170px;line-height:170px;font-size:20px;color:#373737;text-align:center;}
+.livehall_tuichu_d3{width:260px;margin:0 auto;}
+.livehall_tuichu_d3 a{display:block;width:118px;height:44px;line-height:44px;font-size:18px;text-align:center;border-radius:2px;behavior:url(../../js/pie/PIE.htc);cursor:pointer}
+.livehall_tuichu_d3 .livehall_tuichu_d3a1{float:left;color:#fff;border:1px solid #e8484a;background:#e8484a;}
+.livehall_tuichu_d3 .livehall_tuichu_d3a2{float:right;color:#8d8d8d;border:1px solid #e5e5e5;background:#fff;}
+
+/*系统自定义弹框提示*/
+.tipDiv{padding:18px 48px;font-size:14px;color:#fff;line-height:18px;text-align:center;background:#e8484a;border-radius:10px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9999;}
+/* 滚动条样式 */
+/*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸及圆角*/
+.hrScrollbar1::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
+    /*background-color: #ffffff;*/
+}
+.hrScrollbar2::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
+    border-radius: 10px;
+    background-color: #a0a0a0;
+}
+/*定义滚动条的轨道，内阴影及圆角*/
+.hrScrollbar1::-webkit-scrollbar-track{
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.25);*/
+    border-radius: 10px;
+    /*background-color: #ffffff;*/
+}
+/*定义滑块，内阴影及圆角*/
+.hrScrollbar1::-webkit-scrollbar-thumb{
+    /*width: 10px;*/
+    height: 20px;
+    border-radius: 10px;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.5);*/
+    background-color: #dedede;
+}

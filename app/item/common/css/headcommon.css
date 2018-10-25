@@ -1,0 +1,62 @@
+﻿/*head*/
+.panda_head_wai{height:54px;background:#e8484a;}
+.panda_head_nei{width:1200px;height:54px;margin:0 auto;}
+/*logo*/
+.panda_head_logo{float:left;width:100px;height:45px;margin:4px 30px 0 0;background:url("../../../images/index/logo.png")no-repeat center;background-size:100px;}
+/*nav*/
+.panda_head_nav{float:left;width:582px;height:54px;overflow:hidden;}
+.panda_head_nav_li{float:left;padding:5px 12px 0 12px;height:44px;font-size:14px;color:#fff;line-height:44px;text-align:center;cursor:pointer;}
+.panda_head_nav a{display:block;height:44px;font-size:14px;color:#fff;line-height:44px;text-align:center;}
+/*.panda_head_nav_li .on{border-bottom:4px solid #fff;}*/
+.panda_head_nav_li.on{border-bottom:4px solid #fff;}
+/*message*/
+.panda_teacher_div{float:right;width:250px;height:54px;}
+.panda_message_div{float:left;width:43px;height:23px;padding-top:19px;position:relative;}
+/*检测摄像头*/
+.panda_camera_check_pass{float:left;width:37px;height:54px;margin-right:6px;background:url("../../../images/index/camera_pass.png")no-repeat center;}
+.panda_camera_check_fail{float:left;width:37px;height:54px;margin-right:6px;background:url("../../../images/index/camera_fail.png")no-repeat center;}
+/*检测麦克风*/
+.panda_microphone_check_pass{float:left;width:35px;height:54px;margin-right:16px;background:url("../../../images/index/microphone_pass.png")no-repeat center;}
+.panda_microphone_check_fail{float:left;width:35px;height:54px;margin-right:16px;background:url("../../../images/index/microphone_fail.png")no-repeat center;}
+/*消息*/
+
+.panda_message_icon{display:block;width:23px;height:23px;background:url("../../../images/index/pic.png")no-repeat -45px -54px;cursor:pointer;}
+.panda_message_num{display:block;width:13px;height:14px;padding-left:2px;font-size:12px;color:#fff;line-height:12px;text-align:center;background:#f6ba01;border-radius:7px;position:absolute;top:11px;right:13px;cursor:pointer;}
+.panda_message_dropdown_div{display:none;width:287px;height:281px;padding-top:15px;position:absolute;top:39px;right:8px;z-index:10;}
+.panda_message_dropdown_div{display:block;}
+/*.panda_message_dropdown_div{display:block;}*/
+.panda_message_dropdown{width:285px;height:281px;background:#fff;border-radius:4px;border:1px solid #bfbfbf;box-shadow:0 0 8px rgba(0,0,0,0.2);}
+.panda_message_dropdown_icon{display:block;width:10px;height:7px;background:url("../../../images/index/pic.png")no-repeat 0 -70px;position:absolute;top:9px;right:18px;}
+.panda_message_dropdown_list_div{height:231px;padding:10px 6px 0 0;overflow: hidden;}
+.panda_message_dropdown_list{height:48px;padding:10px 12px 10px 16px;border-bottom:1px solid #e5e5e5;cursor:pointer;position:relative;}
+.panda_message_dropdown_list:hover{background:#eee;}
+.panda_message_dropdown_list_unread{display:block;width:8px;height:8px;background:#f6ba01;border-radius:50%;position:absolute;top:4px;right:4px;}
+.panda_message_dropdown_list_img{float:left;width:48px;height:48px;margin-right:20px;border-radius:50%;overflow:hidden;}
+.panda_message_dropdown_list_img img{width:100%;height:100%;}
+.panda_message_dropdown_list_right{float:left;width:176px;}
+.panda_message_dropdown_list_txt_top{height:22px;overflow:hidden;}
+.panda_message_dropdown_list_name{float:left;display:block;width:86px;height:22px;font-size:14px;color:#484848;line-height:22px;overflow:hidden;}
+.panda_message_dropdown_list_week{float:right;width:90px;height:22px;font-size:14px;color:#8d8d8d;line-height:22px;text-align:right;}
+.panda_message_dropdown_list_txt{width:176px;height:24px;margin-top:2px;font-size:12px;color:#8d8d8d;line-height:24px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.panda_message_dropdown_edit{height:40px;padding:0 10px;overflow:hidden;}
+.panda_message_dropdown_edit_left{float:left;width:60px;height:40px;font-size:14px;color:#40b260;line-height:40px;cursor: pointer}
+.panda_message_dropdown_edit_right{float:right;width:90px;height:40px;font-size:14px;color:#40b260;line-height:40px;text-align:right;cursor:pointer;}
+/*info*/
+.panda_teacher_info{float:left;width:100px;height:45px;padding-top:9px;cursor:pointer;position:relative;}
+.panda_teacher_info_img{float:left;width:36px;height:36px;border-radius:50%;overflow:hidden;}
+.panda_teacher_info_img img{width:100%;height:100%;}
+.panda_teacher_info_name{float:right;width:58px;height:36px;font-size:12px;color:#fff;line-height:36px;word-wrap:break-word;word-break:break-all;overflow:hidden;}
+.panda_teacher_info_dropdown_div{display:none;width:160px;height:180px;padding:9px 10px 0 0;position:absolute;top:45px;right:36px;z-index:10;}
+.panda_teacher_info:hover .panda_teacher_info_dropdown_div{display:block;}
+.panda_teacher_info_dropdown_icon{display:block;width:10px;height:7px;background:url("../../../images/index/pic.png")no-repeat 0 -70px;position:absolute;top:3px;right:30px;}
+.panda_teacher_info_dropdown{width:158px;height:138px;background:#fff;border-radius:4px;border:1px solid #bfbfbf;box-shadow:0 0 8px rgba(0,0,0,0.2);}
+.panda_teacher_info_dropdown_nav{margin:12px 0 8px 0;}
+.panda_teacher_info_dropdown_nav li{margin-top:2px;}
+.panda_teacher_info_dropdown_nav a{display:block;width:140px;height:28px;padding-left:18px;font-size:14px;color:#484848;line-height:28px;}
+.panda_teacher_info_dropdown_nav a:hover{background:#ececec;}
+.panda_teacher_info_dropdown_quit{height:37px;padding-left:18px;font-size:14px;color:#484848;line-height:32px;border-top:1px solid #e5e5e5;}
+/*bottom*/
+.home_bottom{padding:26px 0 60px 0;background:#eee;}
+.home_bottom p{font-size:12px;color:#666;line-height:26px;text-align:center;}
+
+.order_dialog_bg{width:100%;height:100%;background:rgba(0,0,0,0.5);position:fixed;top:0;left:0;right:0;bottom:0;z-index:10;}

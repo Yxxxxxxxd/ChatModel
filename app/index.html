@@ -1,0 +1,201 @@
+﻿<html ng-app="xsWeb" ng-cloak>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit" />
+    <title>聊天模型</title>
+    <meta name="keywords" content="聊天模型">
+    <meta name="description" content="聊天模型" />
+    <!--禁止缩放-->
+    <meta name="viewport" content=" user-scalable=no">
+
+    <!--<LINK href="favicon.ico" rel="shortcut icon">-->
+    <!-- build:mybase -->
+    <!-- <base href="/"> -->
+    <!-- endbuild -->
+
+    <!--[if lt IE 10]>
+    <script>
+//        window.location.href="/traditional/html/upgrade_prompt.html";
+    </script>
+    <![endif]-->
+
+    <!--[if !IE]><!-->
+    <script>
+
+    </script>
+    <!--<![endif]-->
+    <!--通用css-->
+    <!-- build:css css/main.css -->
+    <link href="item/common/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="item/common/css/headcommon.css" rel="stylesheet" type="text/css" />
+    <!--用户信息-->
+    <!-- endbuild -->
+    <!--头部相关css-->
+    <!--个人信息-->
+    <!--直播间-->
+    <!-- build:css css/indexMax.css media="(max-width:1400px)"-->
+    <!-- endbuild -->
+    <!--<link href="item/history/css/video.css" rel="stylesheet" type="text/css" />-->
+    <link href="item/common/css/video.css" rel="stylesheet" type="text/css" />
+    <!--帮助页-->
+    <!--公众号充值页面-->
+
+    <!-- endbuild -->
+
+    <!--<link rel="stylesheet" href="bower_components/cropper/css/bootstrap.min.css">-->
+
+    <!--框架依赖包JS文件-->
+    <!-- build:js js/lib.js -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!--<script src="bower_components/jquery/dist/jquery.lazyload.js"></script>-->
+    <script src="bower_components/jquery.easing/js/jquery.easing.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <!--<script src="bower_components/angular/angular.js"></script>-->
+    <!--<script src="bower_components/angular/me-lazyload.js"></script>   -->                      <!--//angular懒加载的插件-->
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.min.js"></script>
+    <script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <!--<script src="bower_components/strophe/strophe.min.js"></script>-->
+    <!--<script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>-->
+    <script src="lib/ui-bootstrap-tpls-2.1.4.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.cityselect.js"></script>
+    <script src="bower_components/velocity/velocity.min.js"></script>
+    <script src="lib/ng-scrollbar.min.js"></script>
+    <script src="lib/pikaday.min.js"></script>
+    <script src="item/common/js/ng-scrollbar.min.js"></script>
+    <script src="item/common/js/jquery.nanoscroller.min.js"></script>
+    <script src="bower_components/cropper/js/bootstrap.bundle.min.js"></script>
+    <!-- endbuild -->
+
+    <script src="bower_components/cropper/js/cropper.js"></script>
+
+    <!--通用js文件引用-->
+    <!-- build:js js/main.js -->
+    <script src="item/modules.js"></script>
+    <script src="item/config.js"></script>
+    <script src="item/app.js"></script>
+    <script src="item/const.js"></script>
+    <script src="item/router.js"></script>
+    <script src="item/indexCtrl.js"></script>
+
+    <!--公用common js文件引用-->
+    <script src="item/xmpp/reconnecting-websocket.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="item/xmpp/strophe.js"></script>
+
+    <!--头部相关-->
+    <script src="item/common/controller/baseHeadCtrl.js"></script>
+    <!--用户信息-->
+
+    <script src="item/common/directive/scrollbottomCmd.js"></script>
+    <script src="item/common/js/base64.js"></script>
+    <script src="item/common/js/crypto-js.js"></script>
+    <script src="item/common/js/custUser.js"></script>
+    <script src="item/common/js/httpSrv.js"></script>
+    <script src="item/common/js/jquery.valid.js"></script>
+    <script src="item/common/js/userSrv.js"></script>
+    <script src="item/common/js/utils.js"></script>
+    <script src="item/common/service/baseHeadSrv.js"></script>
+    <script src="item/common/service/notificationSrv.js"></script>
+    <script src="item/common/service/paraCheckSrv.js"></script>
+    <script src="item/common/service/webSocketSrv.js"></script>
+    <!-- 注册登录 -->
+    <!--<script src="item/loginReg/js/loginReg.js"></script>-->
+    <!--<script src="item/loginReg/controller/loginRegCtrl.js"></script>-->
+    <!--<script src="item/loginReg/controller/registerRegCtrl.js"></script>-->
+    <!--<script src="item/loginReg/controller/quitCtrl.js"></script>-->
+    <!--<script src="item/loginReg/directive/indexLoginCmd.js"></script>-->
+    <!--<script src="item/loginReg/service/loginRegSrv.js"></script>-->
+    <!--<script src="item/loginReg/service/quitSrv.js"></script>-->
+
+    <!--首页controller-->
+    <!--<script src="item/liveHall/controller/liveHallCtrl.js"></script>-->
+    <!--<script src="item/liveHall/service/liveHallSrv.js"></script>-->
+
+    <!--预约管理-->
+    <!--<script type="text/javascript" src="item/order/js/order.js"></script>-->
+
+    <!--登陆后外教展示-->
+    <!--<script src="item/liveHall/js/schedule.js"></script>-->
+    <!--<script src="item/liveHall/controller/liveHallLoginCtrl.js"></script>-->
+    <!--<script src="item/liveHall/service/liveHallLoginSrv.js"></script>-->
+    <!--<script src="item/liveHall/js/index_login.js"></script>-->
+
+    <!--用户信息-->
+
+    <!--历史记录-->
+    <!--<script src="item/common/js/video2.js"></script>-->
+    <!--<script src="item/common/js/video-hls.js"></script>-->
+    <!--帮助-->
+    <!--消息-->
+    <!--直播间-->
+    <script src="item/room/js/room.js"></script>
+    <script src="item/room/js/pdfobject.js"></script>
+    <script src="item/room/service/roomSrv.js"></script>
+    <script src="item/room/service/chatSrv.js"></script>
+    <script src="item/room/service/messageSrv.js"></script>
+    <script src="item/room/controller/roomCtrl.js"></script>
+    <script src="item/room/controller/quietChatCtrl.js"></script>
+    <script src="item/room/controller/roomBaseCtrl.js"></script>
+    <!--日志输出-->
+    <script src="item/common/js/log.js"></script>
+
+    <!-- wei xin -->
+    <!--<script type="text/javascript" src="item/weixinCom/controller/weixinBaseCtrl.js"></script>-->
+    <!--公众号充值页面-->
+    <!--<script type="text/javascript" src="item/wxRecharge/controller/wxRechargeCtrl.js"></script>-->
+    <!--<script type="text/javascript" src="item/wxRecharge/service/wxRechargeSrv.js"></script>-->
+    <!--<script type="text/javascript" src="item/wxRecharge/js/adaptionApp.js"></script>-->
+    <!-- endbuild -->
+
+    <!-- build:mybase -->
+    <!--<script src="js/partials.js"></script>-->
+    <!-- endbuild -->
+</head>
+
+<body>
+<div ng-controller="xsWeb.indexCtrl as indexCtrl">
+    <div ui-view></div>
+    <!--系统弹框提示 -->
+    <div class="tipDiv" ng-show="indexCtrl.tankuang.funcGetIsShow()" >{{indexCtrl.tankuang.funcGetContent()}}</div>
+    <!--系统自定义弹框提示-->
+    <div class="yuezdiv">
+        <div class="yue" ng-show="indexCtrl.hongrenAlert.funcGetIsShow()">
+            <div class="yue_d">
+                <div class="yue_d1">提示</div>
+                <div class="yue_d2">{{indexCtrl.hongrenAlert.funcGetContent()}}</div>
+                <div class="yue_d3">
+                    <a class="yue_d3a1" href="javascript:void(0)" ng-click="indexCtrl.funcRecharge()" ng-show="indexCtrl.hongrenAlert.funcGetContent().indexOf('充值') > 0 || indexCtrl.hongrenAlert.funcGetContent().indexOf('获取') >= 0 ">充值</a>
+                    <a class="yue_d3a1" href="javascript:void(0)" ng-click="indexCtrl.hongrenAlert.funcSetIsShow(false)">确定</a>
+                </div>
+                <div class="yue_d4" ng-click="indexCtrl.hongrenAlert.funcSetIsShow(false)">
+                    <a href="javascript:void(0)"><img src="images/index/login_cha.png"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg" ng-show="indexCtrl.hongrenAlert.funcGetIsShow()"></div>
+    <!--系统自定义弹框提示，带确定按钮-->
+    <div class="yuezdiv">
+        <div id="blance_div3" class="yue" ng-show="indexCtrl.hongrenAlertSubmit.funcGetIsShow()">
+            <div class="yue_d">
+                <div class="yue_d1">提示</div>
+                <div class="yue_d2">{{indexCtrl.hongrenAlertSubmit.funcGetContent()}}</div>
+                <div class="yue_d3">
+                    <a ng-if="indexCtrl.hongrenAlertSubmit.funcGetActionHref()" class="yue_d3a1" target="_blank" ng-href="{{indexCtrl.hongrenAlertSubmit.funcGetActionHref()}}">确定</a>
+                    <a ng-if="!indexCtrl.hongrenAlertSubmit.funcGetActionHref()" class="yue_d3a1"  ng-click="indexCtrl.hongrenAlertSubmit.funcExecuteActionEvt()">确定</a>
+                    <a class="yue_d3a2" href="javascript:void(0)"  ng-click="indexCtrl.hongrenAlertSubmit.funcSetIsShow(false)">取消</a>
+                </div>
+                <div class="yue_d4" ng-click="indexCtrl.hongrenAlertSubmit.funcSetIsShow(false)">
+                    <a href="javascript:void(0)"><img src="images/index/login_cha.png"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg" ng-show="indexCtrl.hongrenAlertSubmit.funcGetIsShow()"></div>
+</div>
+</body>
+</html>
+
