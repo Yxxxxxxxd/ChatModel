@@ -93,15 +93,17 @@
                 source = xmlElement.outerHTML;
                 fromUid = source.match(/from="(\d*)@/);
             }
-            var jsonObj = messageToJson(xmlStr);
-            if (!!jsonObj && jsonObj.type != null) {
+            // var jsonObj = messageToJson(xmlStr);
+            var jsonObj = xmlStr;
+            callback(jsonObj);
+           /* if (!!jsonObj && jsonObj.type != null) {
                 if (!jsonObj.hasOwnProperty('fromUid')) {
                     jsonObj.fromUid = fromUid;
                 }
                 // consoleDebugMessage("接收消息:" + jsonObj.type + " " + jsonObj.subtype);
                 // consoleDebugMessage("消息内容:" + JSON.stringify(jsonObj));
                 callback(jsonObj);
-            }
+            }*/
         }
 
         /**
