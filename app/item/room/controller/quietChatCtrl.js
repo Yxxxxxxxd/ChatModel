@@ -194,7 +194,8 @@
 
             this.speckContent = '';
             var serverTime = XSH5Utils.funcDateTimeFormat("");
-            chatSrv.funcQuietChat(txt, index, serverTime,txt);
+            // chatSrv.funcQuietChat(txt, index, serverTime,txt);
+            chatSrv.funcQuietChatTest(txt, index, serverTime,txt);
         };
         // tab change
         _self.funcChangeTab = function (index, Speak2) {

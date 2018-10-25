@@ -26,7 +26,7 @@
             // var name =projectVar.opDomain;
             var password = '123456';
             var resourceID = projectVar.opSpace+'_'+projectVar.opTerminal+'_'+projectVar.opVersion+'_' + 1 +'_' +webdid;
-            var name =projectVar.opDomain+'yxd' + '@' +projectVar.opPanda + '/'+ resourceID;
+            var name =projectVar.opDomain+'test' + '@' +projectVar.opPanda + '/'+ resourceID;
 
             newPrivateChatConnect(serverUrl, name, password, messageListener, connectionState);
         }
@@ -142,7 +142,8 @@
         function sendLoginMessage(jsonObj, toUid) {
             if (!!privateChatConnect) {
                 var jsonStr = $.toJSONString(jsonObj);
-                var iq = $msg({type: 'chat', to: 'im' + toUid + "@pandaof"}).c('body', {}).t('' + jsonStr);
+                // var iq = $msg({type: 'chat', to: 'im' + toUid + "@pandaof"}).c('body', {}).t('' + jsonStr);
+                var iq = $msg({type: 'chat', to: '' + toUid + "@yxdof"}).c('body', {}).t('' + jsonStr);
                 privateChatConnect.send(iq);
                 consoleDebugMessage("发送消息:" + jsonStr);
             }

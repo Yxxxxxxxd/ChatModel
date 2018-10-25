@@ -24,7 +24,7 @@
     <div class="footer">
         <img src="images/room/hua.png" alt="" />
         <img src="images/room/xiaolian.png" alt="" />
-        <input type="text"  />
-        <p>发送</p>
+        <input type="text" ng-model="quietChatCtrl.speckContent" ng-keydown="quietChatCtrl.funcSpeckKeyEvent($event,1)" placeholder="在这里输入消息..." />
+        <p ng-click="quietChatCtrl.funcQuietSpeck(1)">发送</p>
     </div>
 </div>

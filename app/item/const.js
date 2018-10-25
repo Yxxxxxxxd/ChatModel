@@ -37,6 +37,7 @@ var projectVar = {
     websocketProtocol:location.protocol=='https:' ?'wss://':'ws://',
     opDomain:'',
     opPanda:'yxdof',
+    opName:'test',
     opVersion:'1.0',
     opSpace:'showspace',
     opTerminal:'W',

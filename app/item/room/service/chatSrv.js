@@ -439,6 +439,43 @@
                 this.funcSortArrQuiet();
                 webSocketSrv.sendLoginMessage(json100Obj, speck2.funcGetUid());
             },
+            funcQuietChatTest:function (msg, index, serverTime,sendTxt) {
+                console.log("msg : ",msg);
+                console.log("index : ",index);
+                if(!msg){
+                    return ;
+                }
+                var uid = projectVar.opName; // 当前房间的房间号
+                var data = new Date().getTime();
+                var nonce = parseInt(Math.random()*453395049,10)+1;
+                var md5s =uid.toString()+data+nonce;
+                var historyId = CryptoJS.MD5(md5s) + ''; // 房间号
+
+                // var that = this,
+                //     quietChat,
+                //     chatMsg = new ChatMessage(ChatMessage.prototype.MSG_DIR_SEND, sendTxt,serverTime,historyId,'');
+                // quietChat = this.funcGetQuietChatObjByUid(this.selectedQuietSpeak2who.uid);
+                // quietChat.funcGetMessages().push(chatMsg);
+                // quietChat.funcGetSpeak2().funcSetServerTime(serverTime);
+                // quietChat.funcGetServerTime().push(serverTime);
+                // var speck2 = quietChat.funcGetSpeak2(),
+                //     user = userSrv.funcGetUser();
+
+                var speck2 = 'yxd';
+                var json100Obj = new Object();
+                json100Obj.type = 100; // 401收到消息做出应答
+                json100Obj.messageId = historyId; // 房间号
+                json100Obj.timestamp = data;// 当前回应的时间
+                json100Obj.nonce = nonce; //生成随机数
+                // quietChat.funcGetRoomMessages().push(chatMsg);
+                json100Obj.data =
+                    {
+                        "fromUid":uid,
+                        "text": msg,
+                    };
+                // this.funcSortArrQuiet();
+                webSocketSrv.sendLoginMessage(json100Obj, speck2);
+            },
             funcSortArrQuiet:function () {
                 this.quietSpeck2List.sort(function(a,b){                    //点开消息按钮给消息排序
                     // console.log("b.speak2.serverTime : ",b.speak2.sortServerTime,"a.speak2.serverTime : ",a.speak2.sortServerTime)
