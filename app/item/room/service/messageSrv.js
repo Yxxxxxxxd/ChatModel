@@ -192,10 +192,6 @@ var userClickMobileBound;
             connectOpenfire:function(index,lessonid)
             {
                 var that=this;
-                var user = userSrv.funcGetUser();
-                var uid = "";
-                var password = "";
-                var resourceID;
                 var webdid;
                 if(index == 0){
                     webdid = window.localStorage.web_did;
@@ -203,16 +199,12 @@ var userClickMobileBound;
                     webdid = window.localStorage.web_did + lessonid;
                 }
                 //TODO 暂时修改为config配   上线后改回来
-               var webSocketIp=userSrv.funcGetUser().funcGetLoginWsIp();
-              //    var webSocketIp=xsLocalOfIp;
-                var webSocketPort=userSrv.funcGetUser().funcGetLoginWsPort();
-               //   var webSocketPort=xsLocalOfPort;
-                uid = userSrv.funcGetUser().funcGetUid();
-                password = (userSrv.funcGetUser().funcGetLoginOfToken());
-                resourceID = projectVar.opSpace+'_'+projectVar.opTerminal+'_'+projectVar.opVersion+'_' + 1 +'_' +webdid;
+                // var webSocketIp=userSrv.funcGetUser().funcGetLoginWsIp();
+                   var webSocketIp=xsLocalOfIp;
+                // var webSocketPort=userSrv.funcGetUser().funcGetLoginWsPort();
+                  var webSocketPort=xsLocalOfPort;
                 var protocol=projectVar.websocketProtocol;
                 // var protocol='wss://';
-                var name =projectVar.opDomain+uid + '@' +projectVar.opPanda + '/'+ resourceID;
                 var openfireUrl=protocol+webSocketIp+":"+webSocketPort+"/ws/";
 
                 webSocketSrv.connectServers(openfireUrl,webdid, this.funcOnMessageReceive.bind(this),

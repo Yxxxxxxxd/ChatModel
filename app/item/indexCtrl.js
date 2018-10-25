@@ -17,10 +17,10 @@
         };
 
         $timeout(function () {
-            var user = userSrv.funcGetUser();
-            if(user){
+            // var user = userSrv.funcGetUser();
+            // if(user){
                 messageSrv.connectOpenfire(0);
-            }
+            // }
         });
         //弹框提示，定时关闭
         $scope.showRedAlert = function (msg) {

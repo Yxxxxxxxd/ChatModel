@@ -21,10 +21,13 @@
             var connectionState = function (state) {
                 connectionStateCallBack(state);
             }
-            var uid = userSrv.funcGetUser().funcGetUid();
-            var password = (userSrv.funcGetUser().funcGetLoginOfToken());
+            // var uid = userSrv.funcGetUser().funcGetUid();
+            // var password = (userSrv.funcGetUser().funcGetLoginOfToken());
+            // var name =projectVar.opDomain;
+            var password = '123456';
             var resourceID = projectVar.opSpace+'_'+projectVar.opTerminal+'_'+projectVar.opVersion+'_' + 1 +'_' +webdid;
-            var name =projectVar.opDomain+uid + '@' +projectVar.opPanda + '/'+ resourceID;
+            var name =projectVar.opDomain+'yxd' + '@' +projectVar.opPanda + '/'+ resourceID;
+
             newPrivateChatConnect(serverUrl, name, password, messageListener, connectionState);
         }
 
@@ -51,7 +54,7 @@
                     }
                     WebSocketId = 6;
                     privateChatConnectReconnectTimeOut = setTimeout(function () {
-                        var url = xsServiceURL + "/users/ofpwd";
+                        /*var url = xsServiceURL + "/users/ofpwd";
                         httpSrv.get(url, function (response) {
                             if (paraCheckSrv.checkResponseAndAlertError(response)) {
                                 password = response.data.str;
@@ -59,24 +62,12 @@
                                 userSrv.setUser();
                             }
                         });
-                        disconnectedTime++;
+                        disconnectedTime++;*/
                         newPrivateChatConnect(serverUrl, name, password, messageListener, null);
                     }, 3 * 1000);
                 }else if (Strophe.Status.AUTHFAIL == status && !closedPrivateChatConnectIntented) {
                     // alert("掉线了！！！")
                     WebSocketId = 4;
-                    // privateChatTimeOutStatus4 = setTimeout(function () {
-                    //     var url = xsServiceURL + "/users/ofpwd";
-                    //     httpSrv.get(url, function (response) {
-                    //         if (paraCheckSrv.checkResponseAndAlertError(response)) {
-                    //             password = response.data.str;
-                    //             userSrv.funcGetUser().funcSetOfToken(password);
-                    //             userSrv.setUser();
-                    //         }
-                    //     });
-                    //     // password = (userSrv.funcGetUser().funcGetLoginOfToken());
-                    //     newPrivateChatConnect(serverUrl, name, password, messageListener, null);
-                    // }, 3 * 1000);
                 }
                 if (connectionState) {
                     connectionState(status);
