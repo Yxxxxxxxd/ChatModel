@@ -4,7 +4,7 @@
 //私信
 (function (roomModule, win) {
 
-    var quietChatCtrl = function ($scope,$state, userSrv, $timeout, $interval, chatSrv, loginRegSrv, notificationSrv, paraCheckSrv) {
+    var quietChatCtrl = function ($scope,$state, userSrv, $timeout, $interval, chatSrv, notificationSrv, paraCheckSrv) {
         var _self = this;
 
         this.leaveMssageMaxShow = false;                        //留言页面窗口大
@@ -399,6 +399,6 @@
             });
         }
     };
-    roomModule.controller('xsWeb.room.quietChatCtrl', ['$scope','$state', 'xsWeb.common.userSrv', '$timeout', '$interval', 'xsWeb.room.chatSrv', 'xsWeb.loginReg.mainSrv', 'xsWeb.common.notificationSrv', 'xsWeb.common.paraCheckSrv',
+    roomModule.controller('xsWeb.room.quietChatCtrl', ['$scope','$state', 'xsWeb.common.userSrv', '$timeout', '$interval', 'xsWeb.room.chatSrv',  'xsWeb.common.notificationSrv', 'xsWeb.common.paraCheckSrv',
         quietChatCtrl]);
 })(roomModule, window);
