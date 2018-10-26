@@ -58,20 +58,7 @@
                     hasChannelId = true;
                 }
             }
-            // if (!hasChannelId) {
-            //     var s = window.location.search;
-            //     if (!!s) {
-            //         var stext = s.substring(1,s.Length);
-            //         var params = stext.split("&");
-            //         for (var index in params) {
-            //             var param =  params[index].split("=");
-            //             if (param[0].toLowerCase() == "c") {
-            //                 XSH5Utils.setChannelId(param[1]);
-            //                 break;
-            //             }
-            //         }
-            //     }
-            // }
+
         }
         $(window).on("beforeunload", function() {
             //刷新房间  跟关闭界面执行

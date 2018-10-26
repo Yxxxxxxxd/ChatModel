@@ -4,23 +4,6 @@
 var userClickMobileBound;
 (function(module, win) {
     function messageFactory(httpSrv, $http, window, userSrv, notificationSrv, $timeout, paraCheckSrv, webSocketSrv,chatSrv) {
-        // function DEBUG_LOG(str) {
-        //     if(projectVar.flashLog){
-        //         console.log(str);
-        //     }
-        // }
-
-        function regHtml(str) {
-            var s = "";
-            if (str.length == 0) return "";
-            s = str.replace(/&amp;/g, "&");
-            s = s.replace(/&lt;/g, "<");
-            s = s.replace(/&gt;/g, ">");
-            s = s.replace(/&nbsp;/g, " ");
-            s = s.replace(/&#39;/g, "\'");
-            s = s.replace(/&quot;/g, "\"");
-            return s;
-        }
         //消息拼接
         var MsgGenerate = function () {
             this.emojiElePub = document.createElement("span");//公聊区创建span节点用于存放发言消息，便于过滤表情文本
@@ -28,74 +11,9 @@ var userClickMobileBound;
         };
         MsgGenerate.prototype = {
             constructor:MsgGenerate,
-            funcUserClickOperateHtml:function (uid, nickName) {
-                // var html = ' ng-click="roomMainCtrl.funcChatAreaOperateClick('+uid+','+nickName+',$event)" ';
-                var html = ' onclick="funcChatAreaOperateClick(event,'+uid+',\''+nickName+'\')" ';
-                return html;
-            },
             get100Message:function(messageJson){//聊天消息
                 messageJson.data.unread = true;
                 messageJson.data.messageId = messageJson.messageId;
-                chatSrv.funcReceiveWebSocketMsg(messageJson.data);
-            },
-            get130Message:function(messageJson){//聊天消息
-                var fromUid = userSrv.funcGetUser().funcGetUid();
-                var toUid = messageJson.data.fromUid;
-                var json130Obj = new Object();
-                var data = new Date().getTime();
-                var nonce = parseInt(Math.random()*453395049,10)+1;
-                var md5s = fromUid.toString() +new Date().getTime() + nonce ;
-                json130Obj.type = 100; // 401收到消息做出应答
-                json130Obj.messageId = CryptoJS.MD5(md5s) + ''; // 房间号
-                json130Obj.timestamp = data;// 当前回应的时间
-                json130Obj.nonce = nonce; //生成随机数
-                json130Obj.data =
-                    {
-                        "fromUid":fromUid,
-                        "toUid": toUid
-                    };
-
-                // webSocketSrv.sendLoginMessage(json130Obj, fromUid);
-            },
-            get140Message:function(messageJson){//聊天消息
-                messageJson.data.messageId = messageJson.data.srcId;
-                chatSrv.funcReceive140Msg(messageJson.data);
-            },
-            get200Message:function (messageJson) {
-                var text,item,focusName;
-                item = messageJson.data;
-                focusName = item.fromNickname;
-                item.text = followingMsgArr[0].replace("$fromNickname","我");
-                item.translatedText = followingMsgArr[1].replace("$fromNickname","I");
-                // item.text = focusName+ " " +followingMsgArr[1];
-                item.nickName = item.fromNickname;
-                item.avatar = item.fromAvatar;
-                item.messageId = messageJson.messageId;
-                item.sortServerTime = item.serverTime;
-                item.serverTime = XSH5Utils.funcDateTimeFormat(item.serverTime);
-                // chatSrv.funcReceiveWebSocketMsg(item);
-                chatSrv.funcReceiveWebSocketHistoryMsg(item);
-            },
-            get300Message:function (messageJson) {
-                var item = messageJson.data;
-                var msg = '',text = '';
-                item.fromUid = window.localStorage.astud;
-                item.nickName = window.localStorage.astnm;
-                item.avatar = window.localStorage.astar;
-                for (var i=0;i<ConstantsResource.length;i++){
-                    if(item.template == ConstantsResource[i].key){
-                        msg = ConstantsResource[i].value;
-                    }
-                }
-                text = msg.substring(0,msg.indexOf('||'));
-                text = text.replace(/\$/g, "\ ");
-                text = text.replace('studentNickname', item.studentNickname);
-                text = text.replace('mins',item.mins);
-                text = text.replace('hours','6');
-                text = text.replace('time',item.time);
-                item.text = text.trim();
-                item.unread = true;
-                Log.info("text : ",text);
                 chatSrv.funcReceiveWebSocketMsg(messageJson.data);
             }
         };
