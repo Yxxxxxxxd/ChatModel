@@ -64,7 +64,7 @@ body{
     text-align: center;
 }
 
-.footer{
+.roomFooter{
 	position: fixed;
 	bottom: 0;
     height:1rem;
@@ -74,21 +74,19 @@ body{
     max-width: 720px;
     border-top: 1px solid #ddd;
 }
-.footer img{
+.roomFooter img{
     margin-left:0.2rem;
     width: 0.5rem;
 }
- .footer input{
+ .roomFooter input{
     margin-left:0.2rem;
     width:3.5rem;
     height:0.64rem;
     border-radius: 0.1rem;
     border:0.01rem solid #ddd;
     padding : 0 0.15rem;
-
-
 }
-.footer p{
+.roomFooter p{
    width:1.2rem;
     height:0.68rem;
     font-size:0.3rem;
@@ -101,7 +99,7 @@ body{
     margin-top:0.2rem;
     margin-right:0.2rem;
 }
-.send:after,.show:after,.msg:after{
+.roomSend:after,.show:after,.msg:after{
 	content: "";
 	clear: both;
 	display: table;	
@@ -146,7 +144,7 @@ body{
 	-webkit-transform:rotate(180deg); /* Safari 和 Chrome */
 	-o-transform:rotate(180deg); 	/* Opera */
 }
-.send,.show{
+.roomSend,.show{
 	padding-bottom: 0.3rem;
 }
 .alert_novip,.flower_num,.give_flower{

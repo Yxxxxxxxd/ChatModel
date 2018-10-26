@@ -220,6 +220,13 @@ var userClickMobileBound;
             //openfire 有消息过来时的回调
             funcOnMessageReceive: function (jsonObj) {
                 console.log("openfire  jsonObj : ",jsonObj);
+                var msgObj = {};
+                msgObj.fromUid = '7000001';
+                msgObj.nickName = 'yxd';
+                msgObj.avatar = 'http://www.17sucai.com/preview/1/2017-06-26/talk/images/touxiang.png';
+                msgObj.text = jsonObj;
+                msgObj.serverTime = new Date().getTime();
+                chatSrv.funcReceiveWebSocketMsg(msgObj);
                 // Log.info("logging info: " + JSON.stringify(jsonObj));
                 var msgType;
                 if (!jsonObj || Object.keys(jsonObj).length==0) {

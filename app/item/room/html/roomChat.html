@@ -1,30 +1,32 @@
-<div>
+<div ng-repeat="quietChat in quietChatCtrl.funcGetQuietSpeck2List()" >
     <header class="header">
         <a class="back" href="javascript:history.back()"></a>
-        <h5 class="tit">追星星的人</h5>
+        <h5 class="tit">{{quietChat.funcGetSpeak2().funcGetName()}}</h5>
         <div class="right">资料</div>
     </header>
     <div class="message">
 
-        <div class="send">
-            <div class="time">05/22 06:30</div>
-            <div class="msg">
-                <img src="images/room/touxiang.png" alt="" />
-                <p><i class="msg_input"></i>你好在不在呀，妹子！</p>
+        <div ng-repeat="msg in quietChat.funcGetRoomMessages()">
+            <div class="roomSend"  ng-if="msg.funcGetMsgDir() == msg.MSG_DIR_RECV">
+                <div class="time">{{msg.funcGetFormatTime()}}</div>
+                <div class="msg">
+                    <img ng-src="{{quietChat.funcGetSpeak2().funcGetAvatar()}}" alt="" />
+                    <p><i class="msg_input"></i>{{msg.funcGetMsg()}}</p>
+                </div>
             </div>
-        </div>
-        <div class="show" >
-            <div class="time">05/22 06:30</div>
-            <div class="msg">
-                <img src="images/room/touxiangm.png" alt="" />
-                <p><i class="msg_input"></i>你好你好你好</p>
+            <div class="show" ng-if="msg.funcGetMsgDir() == msg.MSG_DIR_SEND">
+                <div class="time">{{msg.funcGetFormatTime()}}</div>
+                <div class="msg">
+                    <img ng-src="{{quietChatCtrl.userAvatar.funcGetAvatar()}}" alt="" />
+                    <p><i class="msg_input"></i>{{msg.funcGetMsg()}}</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="footer">
+    <div class="roomFooter">
         <img src="images/room/hua.png" alt="" />
         <img src="images/room/xiaolian.png" alt="" />
-        <input type="text" ng-model="quietChatCtrl.speckContent" ng-keydown="quietChatCtrl.funcQuietSpeckKeyEvent($event,1)" placeholder="在这里输入消息..." />
+        <input type="text" ng-model="quietChatCtrl.speckContent" ng-keydown="quietChatCtrl.funcQuietSpeckKeyEvent($event,1)"/>
         <p ng-click="quietChatCtrl.funcQuietSpeck(1)">发送</p>
     </div>
 </div>

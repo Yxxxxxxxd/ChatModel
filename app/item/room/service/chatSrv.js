@@ -5,7 +5,7 @@
 (function(roomModule) {
     'use strict';
 
-    var chatFactory = function (httpSrv, $http, roomSrv, userSrv, notificationSrv, webSocketSrv,paraCheckSrv) {
+    var chatFactory = function ($timeout, httpSrv, $http, roomSrv, userSrv, notificationSrv, webSocketSrv,paraCheckSrv) {
 
         var SPEAK_2_LIST_MAX_NUM = 5;   //对谁说最多显示5个用户
         var QUIET_SPEAK_2_LIST_MAX_NUM = 7;   //私聊说最多显示5个用户
@@ -451,30 +451,32 @@
                 var md5s =uid.toString()+data+nonce;
                 var historyId = CryptoJS.MD5(md5s) + ''; // 房间号
 
-                // var that = this,
-                //     quietChat,
-                //     chatMsg = new ChatMessage(ChatMessage.prototype.MSG_DIR_SEND, sendTxt,serverTime,historyId,'');
-                // quietChat = this.funcGetQuietChatObjByUid(this.selectedQuietSpeak2who.uid);
-                // quietChat.funcGetMessages().push(chatMsg);
-                // quietChat.funcGetSpeak2().funcSetServerTime(serverTime);
-                // quietChat.funcGetServerTime().push(serverTime);
-                // var speck2 = quietChat.funcGetSpeak2(),
-                //     user = userSrv.funcGetUser();
-
-                var speck2 = 'yxd';
+                var that = this,
+                    quietChat,
+                    chatMsg = new ChatMessage(ChatMessage.prototype.MSG_DIR_SEND, sendTxt,serverTime,historyId,'');
+                quietChat = this.funcGetQuietChatObjByUid(this.selectedQuietSpeak2who.uid);
+                quietChat.funcGetMessages().push(chatMsg);
+                quietChat.funcGetSpeak2().funcSetServerTime(serverTime);
+                quietChat.funcGetServerTime().push(serverTime);
+                var speck2 = quietChat.funcGetSpeak2(),
+                    user = userSrv.funcGetUser();
                 var json100Obj = new Object();
                 json100Obj.type = 100; // 401收到消息做出应答
                 json100Obj.messageId = historyId; // 房间号
                 json100Obj.timestamp = data;// 当前回应的时间
                 json100Obj.nonce = nonce; //生成随机数
-                // quietChat.funcGetRoomMessages().push(chatMsg);
+                quietChat.funcGetRoomMessages().push(chatMsg);
                 json100Obj.data =
                     {
-                        "fromUid":uid,
+                        "fromUid":user.funcGetUid(),
+                        "toUid": speck2.funcGetUid(),
                         "text": msg,
+                        "avatar":user.funcGetAvatar(),
+                        "nickName":user.funcGetNickName()
                     };
-                // this.funcSortArrQuiet();
-                webSocketSrv.sendLoginMessage(json100Obj, speck2);
+                this.funcSortArrQuiet();
+                // webSocketSrv.sendLoginMessage(json100Obj, speck2.funcGetUid());
+                webSocketSrv.sendLoginMessage(msg, 'yxd');
             },
             funcSortArrQuiet:function () {
                 this.quietSpeck2List.sort(function(a,b){                    //点开消息按钮给消息排序
@@ -538,7 +540,9 @@
                 chatMsg = new ChatMessage(ChatMessage.prototype.MSG_DIR_RECV, msg,serverTime,historyId);
 
                 if(quietChat = this.funcGetQuietChatObjByUid(uid)){
-                    quietChat.funcGetRoomMessages().push(chatMsg);
+                    $timeout(function(){
+                        quietChat.funcGetRoomMessages().push(chatMsg);
+                    });
                     quietChat.funcGetSpeak2().funcSetLastMsg(msg);
                     quietChat.funcGetMessages().push(chatMsg);
                     quietChat.funcGetServerTime().push(serverTime);
@@ -888,5 +892,5 @@
 
     };
 
-    roomModule.factory('xsWeb.room.chatSrv', ['xsWeb.common.httpSrv', '$http', 'xsWeb.room.roomSrv', 'xsWeb.common.userSrv', 'xsWeb.common.notificationSrv', 'xsWeb.common.webSocketSrv',  'xsWeb.common.paraCheckSrv', chatFactory]);
+    roomModule.factory('xsWeb.room.chatSrv', ['$timeout', 'xsWeb.common.httpSrv', '$http', 'xsWeb.room.roomSrv', 'xsWeb.common.userSrv', 'xsWeb.common.notificationSrv', 'xsWeb.common.webSocketSrv',  'xsWeb.common.paraCheckSrv', chatFactory]);
 })(roomModule);
