@@ -168,7 +168,7 @@
         };
 
         //key event
-        _self.funcSpeckKeyEvent = function (e, index) {
+        _self.funcQuietSpeckKeyEvent = function (e, index) {
             var et = e || window.event;
             var keycode = et.charCode || et.keyCode;
             if(keycode == 13){

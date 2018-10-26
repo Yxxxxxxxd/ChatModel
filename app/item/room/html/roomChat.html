@@ -13,18 +13,18 @@
                 <p><i class="msg_input"></i>你好在不在呀，妹子！</p>
             </div>
         </div>
-        <div class="show">
+        <div class="show" >
             <div class="time">05/22 06:30</div>
             <div class="msg">
                 <img src="images/room/touxiangm.png" alt="" />
-                <p><i clas="msg_input"></i>你好你好你好</p>
+                <p><i class="msg_input"></i>你好你好你好</p>
             </div>
         </div>
     </div>
     <div class="footer">
         <img src="images/room/hua.png" alt="" />
         <img src="images/room/xiaolian.png" alt="" />
-        <input type="text" ng-model="quietChatCtrl.speckContent" ng-keydown="quietChatCtrl.funcSpeckKeyEvent($event,1)" placeholder="在这里输入消息..." />
+        <input type="text" ng-model="quietChatCtrl.speckContent" ng-keydown="quietChatCtrl.funcQuietSpeckKeyEvent($event,1)" placeholder="在这里输入消息..." />
         <p ng-click="quietChatCtrl.funcQuietSpeck(1)">发送</p>
     </div>
 </div>

@@ -524,7 +524,6 @@
                     nickName = msgObj.nickName,
                     avatar = msgObj.avatar,
                     msg = msgObj.text,
-                    lessonId = msgObj.lessonId,
                     historyId = msgObj.messageId,
                     sortServerTime = msgObj.serverTime,
                     unread = msgObj.unread,

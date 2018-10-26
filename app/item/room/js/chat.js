@@ -34,6 +34,7 @@ $(function(){
 })
 
 /*测试数据*/
+/*
 var arr=['我是小Q','好久没联系了！','你在想我么','怎么不和我说话','跟我聊会天吧'];
 var imgarr=['images/touxiang.png','images/touxiangm.png']
 test()
@@ -44,3 +45,4 @@ function test(){
 		},sj()*500)
 	})
 }
+*/

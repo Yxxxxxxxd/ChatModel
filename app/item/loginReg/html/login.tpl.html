@@ -1,0 +1,122 @@
+<div ng-controller="xsWeb.loginReg.loginRegCtrl as loginRegCtrl"></div>
+<!--登录注册-->
+<div class="home_login" ng-show="loginRegCtrl.login_v.forgotPassDialogIsShow.isShowFlag == 0">
+    <span class="home_login_close" ng-click="loginRegCtrl.login_v.funcHideLoginPane()"></span>
+    <div class="home_login_logo">
+        <img src="images/index/logo.png" />
+    </div>
+    <div class="home_login_nav">
+        <ul>
+            <li ng-repeat="tab in loginRegCtrl.login_v.loginMethodTabs" ng-click="loginRegCtrl.login_v.funcChangePicType($index)" ng-class="{'on':$index == loginRegCtrl.login_v.loginMethod}">{{tab}}</li>
+        </ul>
+        <div class="home_login_div_wai" >
+            <!--注册-->
+            <div class="home_login_div" id="registerRegCtrl" ng-controller="xsWeb.loginReg.registerRegCtrl as registerRegCtrl" ng-show="loginRegCtrl.login_v.loginMethod == 0">
+                <div class="home_login_input">
+                    <input class="input_default" ng-model="registerRegCtrl.register_v.loginName" type="text" placeholder="用户名" />
+                </div>
+                <div class="home_login_input">
+                    <input class="input_default" ng-model="registerRegCtrl.register_v.loginEmail" type="text" placeholder="电子邮箱地址" ng-blur="registerRegCtrl.register_v.funcCheckEmailInput(0)" />
+                </div>
+                <div class="home_login_input">
+                    <input class="input_default" ng-model="registerRegCtrl.register_v.loginMobile" type="text" maxlength="11" placeholder="手机号" />
+                </div>
+                <div class="home_login_input">
+                    <input class="input_default" ng-model="registerRegCtrl.register_v.regPasswd" autocomplete="off" type="password" type="text" placeholder="密码" ng-blur="registerRegCtrl.register_v.funcCheckPassInput(0)" />
+                </div>
+                <div class="home_login_input">
+                    <input class="input_default" ng-model="registerRegCtrl.register_v.loginBirth" type="text" maxlength="10" placeholder="出生日期(yyyy-mm-dd)" />
+                </div>
+                <div class="home_login_input">
+                    <input class="input_default" ng-model="registerRegCtrl.register_v.loginMajor" type="text" placeholder="导师专业" />
+                </div>
+                <div class="home_login_radio_div">
+                    <span class="home_login_radio" ng-model="registerRegCtrl.register_v.loginIsChinese" ng-click="registerRegCtrl.register_v.funcGetRegIsChineseClick()"></span>我的母语是中文
+                </div>
+                <p class="home_login_p">
+                    创建账户即表示您同意<a ng-click="registerRegCtrl.register_v.funcPrivacyAgreement()">用户协议</a>并且您已阅读了<a ng-click="registerRegCtrl.register_v.funcPrivacyPolicyClick()" >隐私政策</a>。
+                </p>
+                <a class="home_login_btn1" ng-click="registerRegCtrl.register_v.funcRegAction()">注册</a>
+            </div>
+            <!--登录-->
+            <div class="home_login_div" ng-show="loginRegCtrl.login_v.loginMethod == 1">
+                <!--Facebook注册-->
+                <div class="home_login_facebook_div">
+                    <span class="home_login_facebook_logo"></span>
+                    <p class="home_login_facebook_txt" ng-click="loginRegCtrl.login_v.facebookImageClick()">Facebook账号登录</p>
+                </div>
+                <!--微信注册-->
+                <div class="home_login_wechat_div">
+                    <span class="home_login_wechat_logo"></span>
+                    <p class="home_login_wechat_txt" ng-click="loginRegCtrl.login_v.weixinLoginClick()">使用微信账号登录</p>
+                </div>
+                <div class="home_login_line">
+                    <span>或者</span>
+                </div>
+                <div class="home_login_input">
+                    <input class="input_default" ng-model="loginRegCtrl.login_v.loginName" type="text" placeholder="用户名或电子邮件" ng-change="loginRegCtrl.login_v.funcLoginBtn()"/>
+                </div>
+                <div class="home_login_input">
+                    <input class="input_default" ng-model="loginRegCtrl.login_v.loginPassword" autocomplete="off" type="password" type="text" placeholder="密码" maxlength="20" ng-change="loginRegCtrl.login_v.funcLoginBtn()"  ng-keydown="loginRegCtrl.login_v.funcSpeckKeyEvent()"/>
+                </div>
+                <p class="home_login_forget" ng-click="loginRegCtrl.login_v.funcForgotPassDialog()">忘记密码？</p>
+                <a ng-click="loginRegCtrl.login_v.funcRegLoginAction()" ng-class="{home_login_btn1:loginRegCtrl.login_v.loginBtn1,home_login_btn2:loginRegCtrl.login_v.loginBtn2}">登录</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--忘记密码 1-->
+<div class="home_login_forget_div" ng-show="loginRegCtrl.login_v.forgotPassDialogIsShow.isShowFlag == 1">
+    <span class="home_login_close" ng-click="loginRegCtrl.login_v.funcCloseResetPassDialog()"></span>
+    <div class="home_login_logo">
+        <img src="images/index/logo.png" />
+    </div>
+    <div class="home_login_div">
+        <p class="home_login_forget_p">忘记密码?</p>
+        <!--邮箱地址正确提示-->
+        <div class="home_login_email_tips" ng-show="loginRegCtrl.login_v.forgotSendEmailIsShow == 2">
+            密码重设链接已发送<br/>
+            至{{loginRegCtrl.login_v.resetPassEmailTips}}。如果您未<br/>
+            收到电子邮件，请确认您的输入是否正确。<br/>
+        </div>
+        <!--邮箱地址错误提示-->
+        <div class="home_login_error" ng-show="loginRegCtrl.login_v.forgotSendEmailIsShow == 1">
+            找不到电子邮件地址<br/>
+            为{{loginRegCtrl.login_v.resetPassEmailTips}}的账户。
+        </div>
+        <div class="home_login_input">
+            <input class="input_default" ng-model="loginRegCtrl.login_v.resetPassEmail" type="text" placeholder="电子邮件" />
+        </div>
+        <a class="home_login_btn1" ng-click="loginRegCtrl.login_v.resetPassSendEmail()">重置密码</a>
+    </div>
+</div>
+<!--重置密码-->
+<div class="home_login_forget_div" ng-if="loginRegCtrl.login_v.forgotPassDialogIsShow.isShowFlag == 2">
+    <span class="home_login_close" ng-click="loginRegCtrl.login_v.funcCloseResetPassDialog()"></span>
+    <div class="home_login_logo">
+        <img src="images/index/logo.png" />
+    </div>
+    <div class="home_login_div">
+        <p class="home_login_forget_p">重置密码</p>
+        <!--邮箱地址正确提示-->
+        <div class="home_login_email_tips" ng-show = "loginRegCtrl.login_v.resetPassSuc == 1">
+            成功！
+        </div>
+        <!--邮箱地址错误提示-->
+        <div class="home_login_error"   ng-show = "loginRegCtrl.login_v.resetPassSuc == 2">
+            两次输入密码不一致，请重新输入！
+        </div>
+        <div class="home_login_input">
+            <input class="input_default" ng-value="loginRegCtrl.login_v.userEmail" readonly = "readonly" type="text" />
+        </div>
+        <div class="home_login_input">
+            <input class="input_default" ng-model="loginRegCtrl.login_v.newPass" type="password" placeholder="密码" />
+        </div>
+        <div class="home_login_input">
+            <input class="input_default" ng-model="loginRegCtrl.login_v.validatePass" type="password" placeholder="确认密码" />
+        </div>
+        <a class="home_login_btn1" ng-click="loginRegCtrl.login_v.updateNewPass()">重置密码</a>
+    </div>
+</div>
+<div class="home_indexLogin_bg"></div>

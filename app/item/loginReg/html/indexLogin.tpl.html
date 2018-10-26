@@ -1,0 +1,161 @@
+<div>
+    <div class="home_head_handle" ng-hide="user">
+        <span class="home_head_login" ng-click="roomLogin.login()">登录</span>
+        <span class="home_head_register" ng-click="roomLogin.register()">注册</span>
+    </div>
+    <div  ng-show="user">
+        <!--<div class="panda_teacher_div"  ng-controller="xsWeb.room.quietChatCtrl as quietChatCtrl">-->
+        <div class="panda_teacher_div">
+            <!--摄像头检测通过-->
+            <div ng-class="baseHeadCtrl.videoNormal == false ? 'panda_camera_check_fail' : 'panda_camera_check_pass'"></div>
+            <!--摄像头检测未通过-->
+            <div class="panda_camera_check_fail" style="display:none;"></div>
+            <!--麦克检测通过-->
+            <div ng-class="baseHeadCtrl.audioNormal == false ? 'panda_microphone_check_fail' : 'panda_microphone_check_pass'" ></div>
+            <!--麦克检测未通过-->
+            <!--<div class="panda_microphone_check_fail"></div>-->
+            <!--<div class="panda_message_div" ng-click="quietChatCtrl.funcIsShow()" ng-mouseleave="quietChatCtrl.fucnMessageIconShow(false)" >-->
+            <div class="panda_message_div" ng-click="quietChatCtrl.funcQuietIsShow()" >
+                <span class="panda_message_icon"></span>
+                <span class="panda_message_num" ng-show="quietChatCtrl.UnreadMessageShow"></span>
+                <div class="panda_message_dropdown_div" ng-show="quietChatCtrl.modifyNickNameDivShow" style="display:block;">
+                    <span class="panda_message_dropdown_icon"></span>
+                    <div class="panda_message_dropdown">
+                        <div class="panda_message_dropdown_list_div">
+                            <div class="nano">
+                                <div class="nano-content">
+                                    <!--quietChatCtrl.funcTipPaneClickEvt();-->
+                                    <div ng-repeat="quietChat in quietChatCtrl.funcGetQuietSpeck2List()" ng-click="quietChatCtrl.funcChangeTab($index, quietChat.funcGetSpeak2())" ng-show="quietChat.funcGetIsShow()">
+                                        <!--<div class="panda_message_dropdown_list" ng-repeat="msg in quietChat.funcGetMessages()">-->
+                                        <div class="panda_message_dropdown_list">
+                                            <span class="panda_message_dropdown_list_unread" ng-show="quietChat.funcGetSpeak2().funcGetUnread()"></span>
+                                            <div >
+                                                <div class="panda_message_dropdown_list_img">
+                                                    <img ng-src="{{quietChat.funcGetSpeak2().funcGetAvatar()}}" />
+                                                </div>
+                                                <div class="panda_message_dropdown_list_right">
+                                                    <p class="panda_message_dropdown_list_txt_top">
+                                                        <span class="panda_message_dropdown_list_name">{{quietChat.funcGetSpeak2().funcGetFormatName()}}</span>
+                                                        <span class="panda_message_dropdown_list_week">{{quietChat.funcGetSpeak2().funcGetServerTime()}}</span>
+                                                    </p>
+                                                    <p class="panda_message_dropdown_list_txt" >
+                                                        {{quietChat.funcGetSpeak2().funcGetLastMsg()}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panda_message_dropdown_edit">
+                            <a class="panda_message_dropdown_edit_left" ng-click="baseHeadCtrl.funcRedirectToAllChat()">整页聊天</a>
+                            <span class="panda_message_dropdown_edit_right" ng-click="quietChatCtrl.AllMessageRead()">全部标为已读</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panda_teacher_info">
+                <div class="panda_teacher_info_img">
+                    <img ng-src="{{user.funcGetAvatar()}}" />
+                </div>
+                <!--昵称-->
+                <p class="panda_teacher_info_name">{{user.funcGetNickNameFour()}}</p>
+                <!--<span class="panda_teacher_info_icon"></span>-->
+                <div class="panda_teacher_info_dropdown_div">
+                    <span class="panda_teacher_info_dropdown_icon"></span>
+                    <div class="panda_teacher_info_dropdown">
+                        <ul class="panda_teacher_info_dropdown_nav">
+                            <a ng-click="baseHeadCtrl.funcSelectNickNameBoxShowTag($index)" ng-repeat="tab in baseHeadCtrl.modifyNickNameBoxTabs">{{tab.title}}</a>
+                        </ul>
+                        <p class="panda_teacher_info_dropdown_quit" ng-click="roomLogin.funcUserQuit()">退出</p>
+                    </div>
+                </div>
+            </div>
+            <!--留言-->
+            <div ng-repeat="quietChat in quietChatCtrl.funcGetQuietSpeck2List() track by $index" ng-show="quietChat.funcGetSpeak2().funcGetUid()==quietChatCtrl.thisSpeckUid">
+                <div class="panda_message_panel" ng-show="quietChatCtrl.leaveMssageMaxShow ">
+                    <div class="panda_message_panel_top">
+                        <span class="panda_message_panel_name">{{quietChat.funcGetSpeak2().funcGetName()}}</span>
+                        <div class="panda_message_panel_top_edit">
+                            <span class="panda_message_panel_close" ng-click="quietChatCtrl.funcLeaveMessageClose(false, false)"></span>
+                            <span class="panda_message_panel_min" ng-click="quietChatCtrl.funcLeaveMessageShow(true)"></span>
+                        </div>
+                    </div>
+                    <div class="panda_message_panel_content hrScrollbar2" schroll-bottom="quietChat.funcGetRoomMessages()"
+                         is-enable-scroll="quietChatCtrl.publicChatIsEnScroll">
+                        <div>
+                            <div ng-repeat="msg in quietChat.funcGetRoomMessages()">
+                                <div class="panda_message_panel_talk_other" ng-if="msg.funcGetMsgDir() == msg.MSG_DIR_RECV">
+                                    <div class="panda_message_panel_talk_other_img">
+                                        <img ng-src="{{quietChat.funcGetSpeak2().funcGetAvatar()}}"/>
+                                    </div>
+                                    <p class="panda_message_panel_talk_other_time">{{msg.funcGetFormatTime()}}</p>
+                                    <div class="panda_message_panel_talk_other_txt">
+                                        <p class="panda_message_panel_talk_other_p">
+                                            {{msg.funcGetMsg()}}
+                                        </p>
+                                        <p class="panda_message_panel_talk_other_translate">
+                                            {{msg.funcGetTransMsg()}}
+                                        </p>
+                                        <!--<span class="panda_message_panel_talk_other_bottom" ng-click="quietChatCtrl.funcLoginMessageTranslation(msg.funcGetMsg(),1,$index)">翻译为中文</span>-->
+                                        <div class="panda_message_panel_dialog" ng-show="quietChatCtrl.MessageTranslation1&&$index == quietChatCtrl.MessageTranslationIndex">
+                                            <span class="chat_right_student_dialog_close" ng-click="quietChatCtrl.messageTranslationClose()"></span>
+                                            <div class="chat_right_student_dialog_top">翻译内容</div>
+                                            <div class="chat_right_student_dialog_main">
+                                                <p>{{quietChatCtrl.MessageTranslationText}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panda_message_panel_talk_my" ng-if="msg.funcGetMsgDir() == msg.MSG_DIR_SEND">
+                                    <div class="panda_message_panel_talk_my_img">
+                                        <img ng-src="{{quietChatCtrl.userAvatar.funcGetAvatar()}}" />
+                                    </div>
+                                    <p class="panda_message_panel_talk_my_time">{{msg.funcGetFormatTime()}}</p>
+                                    <div class="panda_message_panel_talk_my_txt">
+                                        <p class="panda_message_panel_talk_other_p">
+                                            {{msg.funcGetMsg()}}
+                                        </p>
+                                        <p class="panda_message_panel_talk_other_translate">{{msg.funcGetTransMsg()}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panda_message_panel_footer">
+                        <input type="text" class="panda_message_panel_footer_input" id="quietEmoji" ng-model="quietChatCtrl.speckContent" ng-keydown="quietChatCtrl.funcSpeckKeyEvent($event,1)" placeholder="在这里输入消息..." />
+                        <span class="panda_message_panel_footer_btn" ng-click="quietChatCtrl.funcQuietSpeck(1)">发送</span>
+                    </div>
+                </div>
+                <!--留言最小化-->
+                <div class="panda_message_panel_min_div" ng-show="quietChatCtrl.leaveMssageMinShow">
+                    <div class="panda_message_panel_top">
+                        <span class="panda_message_panel_name">{{quietChat.funcGetSpeak2().funcGetFormatName()}}</span>
+                        <div class="panda_message_panel_top_edit">
+                            <span class="panda_message_panel_close" ng-click="quietChatCtrl.funcLeaveMessageClose(false, false)"></span>
+                            <span class="panda_message_panel_max" ng-click="quietChatCtrl.funcLeaveMessageShow(false)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--调试摄像头及麦克-->
+    <div ng-show="baseHeadCtrl.detectionCameraShow">
+        <div class="home_login_bg"></div>
+        <div class="panda_test_camera">
+            <p>您好，您没有开通老师权限<br/>如您需要开通老师权限<br/>请联系客服或者发送开通申请邮件到help@upanda.com</p>
+            <div class="panda_test_camera_confirm" ng-click="baseHeadCtrl.RoomTestClick()">确定</div>
+        </div>
+    </div>
+
+    <div ng-show="baseHeadCtrl.detectionCamera">
+        <div class="home_login_bg"></div>
+        <div class="panda_test_camera">
+            <p>请调试您的摄像头及麦克，优质的直播<br/>效果会提升学生对您的印象</p>
+            <div class="panda_test_camera_confirm" ng-click="baseHeadCtrl.RoomTestClickShow()">确定</div>
+        </div>
+    </div>
+</div>
+

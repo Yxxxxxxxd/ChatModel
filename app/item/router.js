@@ -45,8 +45,8 @@ angular.module('xsWeb')
                     url : '/',
                     views : {
                         'mainView' : {
-                            // templateUrl: 'item/liveHall/html/liveHall.html'
-                            templateUrl: 'item/room/html/roomChat.html'
+                            templateUrl: 'item/liveHall/html/liveHall.html'
+                            // templateUrl: 'item/room/html/roomChat.html'
                         }
                     }
                 })
@@ -79,7 +79,7 @@ angular.module('xsWeb')
                     }
                 })
 
-                //新版直播间
+                //聊天页
                 .state('roomBase.roomChat', {
                     url : '/room',
                     // url : '/roomNew/{lessonid:[0-9]{1,4}}',
