@@ -36,7 +36,7 @@ var projectVar = {
     mobileBoundText:'绑定手机号，账号有保障！',
     websocketProtocol:location.protocol=='https:' ?'wss://':'ws://',
     opDomain:'',
-    opPanda:'yxdof',
+    opPanda:'chatof',
     opName:'test',
     opVersion:'1.0',
     opSpace:'showspace',

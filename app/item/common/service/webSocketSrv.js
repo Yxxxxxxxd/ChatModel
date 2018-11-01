@@ -145,7 +145,7 @@
             if (!!privateChatConnect) {
                 var jsonStr = $.toJSONString(jsonObj);
                 // var iq = $msg({type: 'chat', to: 'im' + toUid + "@pandaof"}).c('body', {}).t('' + jsonStr);
-                var iq = $msg({type: 'chat', to: '' + toUid + "@yxdof"}).c('body', {}).t('' + jsonStr);
+                var iq = $msg({type: 'chat', to: '' + toUid + "@chatof"}).c('body', {}).t('' + jsonStr);
                 privateChatConnect.send(iq);
                 consoleDebugMessage("发送消息:" + jsonStr);
             }

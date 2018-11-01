@@ -21,7 +21,7 @@
             // if(user){
             var userInfo = {
                 avatar:'http://www.17sucai.com/preview/1/2017-06-26/talk/images/touxiangm.png',
-                nickname:'test',
+                nickname:'yxx',
                 uid:7000002
             };
             //模拟用户信息
