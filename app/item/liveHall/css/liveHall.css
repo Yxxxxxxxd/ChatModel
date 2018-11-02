@@ -80,7 +80,7 @@
     box-shadow: 2px 2px 2px #d4d4d4;
     cursor: pointer;
     position: relative;
-    top: 50%;
+    top: 20%;
     left: 50%;
     overflow: hidden;
 }
@@ -90,6 +90,21 @@
 }
 .chatBtn>i{
     font-size: 25px;
+}
+.chatBtn>p{
+    font-size: 14px;
+}
+.chatBtn2{
+    left: 20%;
+}
+.chatBtn3{
+    left: 30%;
+}
+.chatBtn4{
+    left: 40%;
+}
+.chatBtn5{
+    left: 60%;
 }
 .chatBox{
     width: 370px;
