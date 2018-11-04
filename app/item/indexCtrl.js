@@ -17,21 +17,16 @@
         };
 
         $timeout(function () {
-            // var user = userSrv.funcGetUser();
-            // if(user){
             var userInfo = {
                 avatar:'http://www.17sucai.com/preview/1/2017-06-26/talk/images/touxiangm.png',
                 nickname:'yxx',
                 uid:7000002
             };
-            //模拟用户信息
-            //isVisitor, avatar, nickname, showid, uid, isAnchor, sessionid, loginTime,isInMyRoom,ofToken,ofIp,ofPort,wsPort，wsIp,loginToken,qstr,verified,halted
             var user = new G_OBJ_user(false, userInfo.avatar, userInfo.nickname, userInfo.showid,
                 userInfo.uid, true,userInfo.accessToken, new Date().getTime(),'','',userInfo.ofToken,userInfo.ofIp,userInfo.ofPort,userInfo.wsPort,userInfo.wsIp,userInfo.loginToken,userInfo.qstr,userInfo.role,userInfo.verified,userInfo.halted);
             userSrv.funcSetUser(user);
             userSrv.setUser();
-                messageSrv.connectOpenfire(0);
-            // }
+            // messageSrv.connectOpenfire(0);
         });
         //弹框提示，定时关闭
         $scope.showRedAlert = function (msg) {

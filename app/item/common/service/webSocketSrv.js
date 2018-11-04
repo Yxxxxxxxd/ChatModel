@@ -10,7 +10,7 @@
         var closedPublicChatConnectIntented;
         var disconnectedTime = 0;
 
-        function connectPrivateChatServer(serverUrl,webdid, receivingMessageCallback, connectionStateCallBack) {
+        function connectPrivateChatServer(serverUrl,ofname, receivingMessageCallback, connectionStateCallBack) {
             closedPrivateChatConnectIntented = false;
             var user = userSrv.funcGetUser();
             //消息回调
@@ -25,8 +25,8 @@
             // var password = (userSrv.funcGetUser().funcGetLoginOfToken());
             // var name =projectVar.opDomain;
             var password = '123456';
-            var resourceID = projectVar.opSpace+'_'+projectVar.opTerminal+'_'+projectVar.opVersion+'_' + 1 +'_' +webdid;
-            var name =projectVar.opDomain+'test' + '@' +projectVar.opPanda + '/'+ resourceID;
+            var resourceID = projectVar.opSpace+'_'+projectVar.opTerminal+'_'+projectVar.opVersion+'_' + 1 +'_' ;
+            var name =projectVar.opDomain+ofname + '@' +projectVar.opPanda + '/'+ resourceID;
 
             newPrivateChatConnect(serverUrl, name, password, messageListener, connectionState);
         }
@@ -79,6 +79,7 @@
          * 处理回调消息
          */
         function handleReceivingMessage(xmlElement, callback) {
+            // console.log("xmlElement : ",xmlElement)
             var xmlStr = null,
                 fromUid,
                 source;
@@ -91,10 +92,29 @@
             //parse from uid
             if (xmlElement && xmlElement.outerHTML) {
                 source = xmlElement.outerHTML;
-                fromUid = source.match(/from="(\d*)@/);
+                fromUid = source.match(/from="(.*?)@/);
+                // fromUid = source.match("from");
+                // fromUid = fromUid.match(/"(.*?)@/);
+                // fromUid = source.match("from");
             }
             // var jsonObj = messageToJson(xmlStr);
-            var jsonObj = xmlStr;
+            var jsonObj={};
+            jsonObj.text = xmlStr;
+            jsonObj.serverTime = new Date().getTime();
+            jsonObj.nickName = fromUid[1];
+            if(fromUid[1] == 'yxx'){
+                jsonObj.fromUid = 120707;
+                jsonObj.avatar = '/app/images/room/xingxing.jpg';
+            }else if(fromUid[1] == 'xl'){
+                jsonObj.fromUid = 120702;
+                jsonObj.avatar = '/images/room/xulei.jpg';
+            }else if(fromUid[1] == 'bcj'){
+                jsonObj.fromUid = 120706;
+                jsonObj.avatar = '/images/room/xiaojiang.jpg';
+            }else if(fromUid[1] == 'yxd'){
+                jsonObj.fromUid = 120704;
+                jsonObj.avatar = '/images/room/shezhang.jpg';
+            }
             callback(jsonObj);
            /* if (!!jsonObj && jsonObj.type != null) {
                 if (!jsonObj.hasOwnProperty('fromUid')) {

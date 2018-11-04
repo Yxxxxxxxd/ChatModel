@@ -80,9 +80,10 @@
     box-shadow: 2px 2px 2px #d4d4d4;
     cursor: pointer;
     position: relative;
-    top: 20%;
-    left: 50%;
+    /*top: 20%;*/
+    /*left: 50%;*/
     overflow: hidden;
+    display: inline-block;
 }
 .chatBtn:hover{
     background: #01b3df;

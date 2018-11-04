@@ -1,19 +1,38 @@
 <div>
     <div class="chatContainer">
-       <!-- <div class="chatBtn" ng-click="baseHeadCtrl.funcJoinRoom()">
-            <i class="iconfont icon-xiaoxi1"></i>
-        </div>-->
-        <div class="chatBtn chatBtn2" ng-click="baseHeadCtrl.funcJoinRoom()">
+        <p>选择你的身份：{{baseHeadCtrl.seleteName}}</p>
+        <div class="chatBtn " ng-click="baseHeadCtrl.SelectPersonalIdentity(0)">
             <p>星星</p>
-            <i class="iconfont icon-xiaoxi1"></i>
+            <!--<i class="iconfont icon-xiaoxi1"></i>-->
         </div>
-        <div class="chatBtn chatBtn3" ng-click="baseHeadCtrl.funcJoinRoom()">
+        <div class="chatBtn " ng-click="baseHeadCtrl.SelectPersonalIdentity(1)">
             <p>徐雷</p>
-            <i class="iconfont icon-xiaoxi1"></i>
+            <!--<i class="iconfont icon-xiaoxi1"></i>-->
         </div>
-        <div class="chatBtn chatBtn4" ng-click="baseHeadCtrl.funcJoinRoom()">
+        <div class="chatBtn " ng-click="baseHeadCtrl.SelectPersonalIdentity(2)">
             <p>小江</p>
-            <i class="iconfont icon-xiaoxi1"></i>
+            <!--<i class="iconfont icon-xiaoxi1"></i>-->
+        </div>
+        <div class="chatBtn " ng-click="baseHeadCtrl.SelectPersonalIdentity(3)">
+            <p>舍长</p>
+            <!--<i class="iconfont icon-xiaoxi1"></i>-->
+        </div>
+        <p>请选择聊天对象：</p>
+        <div class="chatBtn " ng-click="baseHeadCtrl.funcJoinRoom(0)">
+            <p>星星</p>
+            <!--<i class="iconfont icon-xiaoxi1"></i>-->
+        </div>
+        <div class="chatBtn " ng-click="baseHeadCtrl.funcJoinRoom(1)">
+            <p>徐雷</p>
+            <!--<i class="iconfont icon-xiaoxi1"></i>-->
+        </div>
+        <div class="chatBtn " ng-click="baseHeadCtrl.funcJoinRoom(2)">
+            <p>小江</p>
+            <!--<i class="iconfont icon-xiaoxi1"></i>-->
+        </div>
+        <div class="chatBtn " ng-click="baseHeadCtrl.funcJoinRoom(3)">
+            <p>舍长</p>
+            <!--<i class="iconfont icon-xiaoxi1"></i>-->
         </div>
     </div>
 </div>

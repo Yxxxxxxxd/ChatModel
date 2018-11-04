@@ -434,7 +434,8 @@
                     };
                 this.funcSortArrQuiet();
                 // webSocketSrv.sendLoginMessage(json100Obj, speck2.funcGetUid());
-                webSocketSrv.sendLoginMessage(msg, 'yxx');
+                // webSocketSrv.sendLoginMessage(msg, 'yxx');
+                webSocketSrv.sendLoginMessage(msg, speck2.funcGetName());
             },
             funcSortArrQuiet:function () {
                 this.quietSpeck2List.sort(function(a,b){                    //点开消息按钮给消息排序

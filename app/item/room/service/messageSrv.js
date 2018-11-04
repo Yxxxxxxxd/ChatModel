@@ -107,15 +107,8 @@ var userClickMobileBound;
             funcGetPublicChatCache:function () {
                 return this.publicChatCache;
             },
-            connectOpenfire:function(index,lessonid)
+            connectOpenfire:function(name,lessonid)
             {
-                var that=this;
-                var webdid;
-                if(index == 0){
-                    webdid = window.localStorage.web_did;
-                }else{
-                    webdid = window.localStorage.web_did + lessonid;
-                }
                 //TODO 暂时修改为config配   上线后改回来
                 // var webSocketIp=userSrv.funcGetUser().funcGetLoginWsIp();
                    var webSocketIp=xsLocalOfIp;
@@ -125,7 +118,7 @@ var userClickMobileBound;
                 // var protocol='wss://';
                 var openfireUrl=protocol+webSocketIp+":"+webSocketPort+"/ws/";
 
-                webSocketSrv.connectServers(openfireUrl,webdid, this.funcOnMessageReceive.bind(this),
+                webSocketSrv.connectServers(openfireUrl,name, this.funcOnMessageReceive.bind(this),
                     function (state) {
                         console.log('connectionStateCallBack state='+state);
                     },this.openfireConnectSuccess.bind(this)
@@ -139,12 +132,13 @@ var userClickMobileBound;
             funcOnMessageReceive: function (jsonObj) {
                 console.log("openfire  jsonObj : ",jsonObj);
                 var msgObj = {};
-                msgObj.fromUid = '7000001';
-                msgObj.nickName = 'yxd';
-                msgObj.avatar = 'http://www.17sucai.com/preview/1/2017-06-26/talk/images/touxiang.png';
-                msgObj.text = jsonObj;
-                msgObj.serverTime = new Date().getTime();
-                chatSrv.funcReceiveWebSocketMsg(msgObj);
+                /*添加uid    todo*/
+                // msgObj.fromUid = jsonObj.fromUid;
+                // msgObj.nickName = jsonObj.nickName;
+                // msgObj.avatar = 'http://www.17sucai.com/preview/1/2017-06-26/talk/images/touxiang.png';
+                // msgObj.text = jsonObj.msg;
+                // msgObj.serverTime = new Date().getTime();
+                chatSrv.funcReceiveWebSocketMsg(jsonObj);
                 // Log.info("logging info: " + JSON.stringify(jsonObj));
                 var msgType;
                 if (!jsonObj || Object.keys(jsonObj).length==0) {

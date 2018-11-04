@@ -4,7 +4,8 @@
         <h5 class="tit">{{quietChat.funcGetSpeak2().funcGetName()}}</h5>
         <div class="right">资料</div>
     </header>
-    <div class="message">
+    <div class="message hrScrollbar2" schroll-bottom="quietChat.funcGetRoomMessages()"
+         is-enable-scroll="quietChatCtrl.publicChatIsEnScroll">
 
         <div ng-repeat="msg in quietChat.funcGetRoomMessages()">
             <div class="roomSend"  ng-if="msg.funcGetMsgDir() == msg.MSG_DIR_RECV">
