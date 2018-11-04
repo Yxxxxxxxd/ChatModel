@@ -34,22 +34,22 @@ angular.module('xsWeb').controller('xsWeb.baseHeadCtrl', ['$window','$state', '$
         this.SelectPersonalIdentity = function (index) {
             var avatar = '',nickname='',uid=0,ofName='';
             if(index == 0){
-                avatar = '/app/images/room/xingxing.jpg';
+                avatar = '/images/room/xingxing.jpg';
                 nickname = 'yxx';
                 ofName = 'yxx';
                 uid = '120707';
             }else if(index == 1){
-                avatar = '/app/images/room/xulei.jpg';
+                avatar = '/images/room/xulei.jpg';
                 nickname = 'xl';
                 ofName = 'xl';
                 uid = '120702';
             }else if(index == 2){
-                avatar = '/app/images/room/xiaojiang.jpg';
+                avatar = '/images/room/xiaojiang.jpg';
                 nickname = 'bcj';
                 ofName = 'bcj';
                 uid = '120706';
             }else if(index == 3){
-                avatar = '/app/images/room/shezhang.jpg';
+                avatar = '/images/room/shezhang.jpg';
                 nickname = 'yxd';
                 ofName = 'yxd';
                 uid = '120704';
@@ -71,7 +71,7 @@ angular.module('xsWeb').controller('xsWeb.baseHeadCtrl', ['$window','$state', '$
         this.funcJoinRoom = function (index) {
             var avatar = '',nickname='',uid=0;
             if(index == 0){
-                avatar = '/app/images/room/xingxing.jpg';
+                avatar = '/images/room/xingxing.jpg';
                 nickname = 'yxx';
                 uid = '120707';
             }else if(index == 1){

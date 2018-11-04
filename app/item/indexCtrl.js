@@ -17,15 +17,15 @@
         };
 
         $timeout(function () {
-            var userInfo = {
+            /*var userInfo = {
                 avatar:'http://www.17sucai.com/preview/1/2017-06-26/talk/images/touxiangm.png',
                 nickname:'yxx',
-                uid:7000002
+                uid:120707
             };
             var user = new G_OBJ_user(false, userInfo.avatar, userInfo.nickname, userInfo.showid,
                 userInfo.uid, true,userInfo.accessToken, new Date().getTime(),'','',userInfo.ofToken,userInfo.ofIp,userInfo.ofPort,userInfo.wsPort,userInfo.wsIp,userInfo.loginToken,userInfo.qstr,userInfo.role,userInfo.verified,userInfo.halted);
             userSrv.funcSetUser(user);
-            userSrv.setUser();
+            userSrv.setUser();*/
             // messageSrv.connectOpenfire(0);
         });
         //弹框提示，定时关闭
