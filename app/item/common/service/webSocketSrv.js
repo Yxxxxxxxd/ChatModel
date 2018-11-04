@@ -104,7 +104,7 @@
             jsonObj.nickName = fromUid[1];
             if(fromUid[1] == 'yxx'){
                 jsonObj.fromUid = 120707;
-                jsonObj.avatar = '/app/images/room/xingxing.jpg';
+                jsonObj.avatar = '/images/room/xingxing.jpg';
             }else if(fromUid[1] == 'xl'){
                 jsonObj.fromUid = 120702;
                 jsonObj.avatar = '/images/room/xulei.jpg';
