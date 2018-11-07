@@ -1,0 +1,23 @@
+/* reset */
+body,div,p,ul,li,table,tbody,tr,td,textarea,form,input,h1,h2,h3,h4,h5,dl,dt,dd,img,iframe,header,nav,section,article,footer,figure,figcaption,menu{margin:0;padding:0;list-style:none;}
+body{font-family:"\5FAE\8F6F\96C5\9ED1",Helvetica;-webkit-text-size-adjust:none;font-size:0.24rem;}
+header,nav,section,article,footer,figure,figcaption{display:block;}
+ol,ul{margin:0;padding:0;}
+fieldset{border:none;margin:0;padding:0;}
+a,li,ul,[onclick]{-webkit-tap-highlight-color:none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+table{border-collapse:collapse;border-spacing:0;}
+em,strong{font-weight:normal;font-style:normal;}
+a {text-decoration:none;}
+b{font-weight: bold;}
+.hide {display:none;}
+.c:before,.c:after {content:"";display:table;}
+.c:after {clear:both;}
+.fl {float:left;}
+.fr {float:right;}
+.pr {position:relative;}
+.pa {position:absolute;}
+.db {display:block;text-indent:-999em;}
+body{max-width: 750px;font-family: "\5FAE\8F6F\96C5\9ED1";margin: 0 auto;}
+body,html{background-color: #fff;height: 100%;}
+.sp{background: url(../../../images/index/sp.png) no-repeat;}
+input::-webkit-input-placeholder{color:#cdcccc;}
