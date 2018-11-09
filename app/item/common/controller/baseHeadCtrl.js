@@ -4,8 +4,10 @@
 angular.module('xsWeb').controller('xsWeb.baseHeadCtrl', ['$window','$state', '$scope', '$stateParams', '$timeout','$interval','xsWeb.common.baseHeadSrv','xsWeb.common.userSrv',  '$location','xsWeb.common.notificationSrv','xsWeb.room.messageSrv', 'xsWeb.common.paraCheckSrv','xsWeb.common.webSocketSrv','xsWeb.room.chatSrv',
     function ($window, $state, $scope, $stateParams, $timeout,$interval,baseHeadSrv,userSrv, $location,notificationSrv,messageSrv,paraCheckSrv,webSocketSrv,chatSrv) {
         var that  = this;
-        this.seleteName = '';
         var user = userSrv.funcGetUser();
+        this.genderArr = ['男', '女'];                                    //性别
+        this.seleteName = '';
+
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
 
             if (!user) {
@@ -14,14 +16,32 @@ angular.module('xsWeb').controller('xsWeb.baseHeadCtrl', ['$window','$state', '$
                 //     loginRegSrv.isClickLoginBtn[0] = !loginRegSrv.isClickLoginBtn[0];
                 // }
                 // $state.go("baseHead.liveHall");
-
                 // $state.go("roomBase.roomChat");
             }
             else{
-
             }
-
         });
+
+        this.funcMobileSelectGender = function () {                              //选择性别
+            var mobileSelectGender = new MobileSelect({
+                trigger: '#Gender',
+                wheels: [
+                    {data:that.genderArr }
+                ],
+                position: [0], //初始化定位 打开时默认选中的哪个 如果不填默认为0
+                transitionEnd: function (indexArr, data) {
+                    //console.log(data);
+                },
+                callback: function (indexArr, data) {
+                    console.log(data);
+                }
+            });
+        };
+        
+        this.funcGetGenderClick = function () {
+
+        }
+
         var source = 'from="yxx@chatof/Spark 2.8.3.960"';
         // var fromUid = source.match(/from="(\d*)@/i);
         // var fromUid = source.replace("from=","");
@@ -90,6 +110,10 @@ angular.module('xsWeb').controller('xsWeb.baseHeadCtrl', ['$window','$state', '$
             chatSrv._funcAddUserToQuietSpeckList(uid, nickname, avatar);
             $state.go("roomBase.roomChat");
         };
+
+        $timeout(function () {
+            that.funcMobileSelectGender();
+        },500);
 
         this.funcToTop = function(){            //回到顶部
             $("html,body").animate({scrollTop: 0}, 500);

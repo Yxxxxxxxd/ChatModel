@@ -1,6 +1,6 @@
 .wrap{width: 100%;position: relative;background-size: 100% 100%;}
-.head{background-image: url(../../../images/index/login-head.png);height: 238px;background-repeat: no-repeat;width: 100%;padding-top: 120px;}
-.tit{background-position: 0 0;width: 182px;height: 64px;margin: 0 auto;animation: flipInX 1s 1s ease both;}
+.head{background-image: url(../../../images/index/login-head.png);height: 238px;background-repeat: no-repeat;width: 100%;padding-top: 115px;letter-spacing: 8px;}
+.tit{font-size: 60px;line-height: 70px;text-align: center;color: #fff;font-weight: normal;margin: 0 auto;animation: flipInX 1s 1s ease both;}
 @-webkit-keyframes flipInX{
     from {
         -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -31,19 +31,42 @@
 }
 .content{padding: 120px 0 0 0;}
 .content_pab{padding-bottom: 50px;}
-.content p{width: 566px;margin: 0 auto;height: 50px;border-bottom: 1px solid #cdcccc;padding-top: 60px;}
-.num em{background-position: -416px 0;width: 39px;height: 44px;float: left;margin-right: 18px;}
-.content p input{border: none;background: none;font-size: 38px;line-height: 50px;display: block;padding: 0 10px;color: #cdcccc;height: 50px;float: left;width: 470px;}
-.password em{background-position: -486px 0;width: 37px;height: 43px;float: left;margin-right: 18px;}
-.list_user{width: 566px;margin: 0 auto;padding-top: 10px;}
-.list_user li{width: 96px;float: left;}
-.list_user li a{font-size: 18px;color: #cdcccc;line-height: 28px;}
-.list_user li:nth-child(2){float: right;}
-.list_user li:nth-child(1){padding-left: 16px;}
-.btn_login{width: 415px;height: 111px;margin: 66px auto 0;display: block;}
-.btn_login i,.btn_login b,.btn_login em{background-position: 0 -74px;width: 415px;height: 111px;position: absolute;left: 0;top: 0;}
+.icon{width: 146px;height: 146px;display: block;}
+.icon span{font-size: 40px;color: #fff;line-height: 118px;text-align: center;display: block;padding: 12px 0 0 17px;width: 118px;height: 118px;position: absolute;left: 0;top: 0;}
+.icon_gender,.icon_gender i,.icon_gender b,.icon_gender strong{background-position: 0 -193px;left: 87px;top: 236px;}
+
+.icon_age,.icon_age i,.icon_age b,.icon_age strong{background-position: -166px -193px;left: 230px;top: 67px;}
+
+.icon_area,.icon_area i,.icon_area b,.icon_area strong{background-position: -332px -193px;left: 506px;top: 108px;}
+
+.icon_vip,.icon_vip i,.icon_vip b,.icon_vip strong{background-position: -664px -193px;left: 261px;top: 462px;}
+
+.icon_signal,.icon_signal i,.icon_signal b,.icon_signal strong{background-position: -498px -193px;left: 448px;top: 322px;}
+
+.icon_gender i,.icon_gender b,.icon_gender strong,.icon_age i,.icon_age b,.icon_age strong,.icon_area i,.icon_area b,.icon_area strong,.icon_vip i,.icon_vip b,.icon_vip strong,.icon_signal i,.icon_signal b,.icon_signal strong{left: 0;top: 0;width: 146px;height: 146px;}
+
+.btn_login{width: 415px;height: 111px;margin: 620px auto 0;display: block;}
+.btn_login i,.btn_login b,.btn_login em{background-position: -1px -72px;width: 415px;height: 111px;position: absolute;left: 0;top: 0;}
 .btn_login i{-webkit-animation:pulse1 1s .2s linear infinite;animation:pulse1 1s .2s linear infinite;}
 .btn_login b{-webkit-animation:pulse2 1s .2s linear infinite;animation:pulse2 1s .2s linear infinite;}
+.btn_login span{font-size: 48px;color: #fff;line-height: 83px;text-align: center;width: 387px;position: absolute;display: block;left: 17px;top: 12px;}
+
+.icon_gender i{-webkit-animation:pulse1 1s .5s linear infinite;animation:pulse1 1s .5s linear infinite;}
+.icon_gender b{-webkit-animation:pulse2 1s .5s linear infinite;animation:pulse2 1s .5s linear infinite;}
+.icon_age i{-webkit-animation:pulse1 1s .6s linear infinite;animation:pulse1 1s .6s linear infinite;}
+.icon_age b{-webkit-animation:pulse2 1s .6s linear infinite;animation:pulse2 1s .6s linear infinite;}
+.icon_area i{-webkit-animation:pulse1 1s .7s linear infinite;animation:pulse1 1s .7s linear infinite;}
+.icon_area b{-webkit-animation:pulse2 1s .7s linear infinite;animation:pulse2 1s .7s linear infinite;}
+.icon_vip i{-webkit-animation:pulse1 1s .8s linear infinite;animation:pulse1 1s .8s linear infinite;}
+.icon_vip b{-webkit-animation:pulse2 1s .8s linear infinite;animation:pulse2 1s .8s linear infinite;}
+.icon_signal i{-webkit-animation:pulse1 1s .9s linear infinite;animation:pulse1 1s .9s linear infinite;}
+.icon_signal b{-webkit-animation:pulse2 1s .9s linear infinite;animation:pulse2 1s .9s linear infinite;}
+
+.icon_gender{animation: moveUpdown 2s .5s linear infinite;}
+.icon_age{animation: moveUpdown 2s .6s linear infinite;}
+.icon_area{animation: moveUpdown 2s .7s linear infinite;}
+.icon_vip{animation: moveUpdown 2s .8s linear infinite;}
+.icon_signal{animation: moveUpdown 2s .9s linear infinite;}
 @-webkit-keyframes pulse1{
     0%{-webkit-transform:scale(1);opacity: .6;}
     100%{-webkit-transform:scale(1.03);opacity: .1;}
@@ -60,13 +83,11 @@
     0%{transform:scale(1);opacity: .6;}
     100%{transform:scale(1.05);opacity: .1;}
 }
-.tit_s{text-align: center;line-height: 34px;margin-top: 195px;}
-.tit_s em{display: inline-block;width: 240px;height: 2px;background-color: #e3e3e3;vertical-align: middle;}
-.tit_s span{font-size: 24px;line-height: 34px;color: #838383;font-weight: normal;vertical-align: middle;padding: 0 16px;}
-.list_login{padding: 50px 0 0 146px;}
-.list_login li{width: 58px;float: left;margin-left: 70px;}
-.list_login li a{width: 58px;height: 58px;float: left;}
-.list_login li:nth-child(1) a{background-position: -278px 0;}
-.list_login li:nth-child(2) a{background-position: -347px 0;}
-.list_login li:nth-child(3) a{background-position: -210px 0;}
+
+@keyframes moveUpdown{
+    0%{transform: translateY(0px);}
+    50%{transform: translateY(10px);}
+    100%{transform: translateY(0px);}
+}
+
 :focus{outline: none;}
