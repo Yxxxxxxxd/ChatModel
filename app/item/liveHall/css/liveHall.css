@@ -1,5 +1,5 @@
 .wrap{width: 100%;position: relative;background-size: 100% 100%;}
-.head{background-image: url(../../../images/index/login-head.png);height: 238px;background-repeat: no-repeat;width: 100%;padding-top: 115px;letter-spacing: 8px;}
+.head{background-image: url(../../../images/index/login-head.png);height: 244px;background-repeat: no-repeat;width: 100%;padding-top: 115px;letter-spacing: 8px;}
 .tit{font-size: 60px;line-height: 70px;text-align: center;color: #fff;font-weight: normal;margin: 0 auto;animation: flipInX 1s 1s ease both;}
 @-webkit-keyframes flipInX{
     from {
